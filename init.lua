@@ -50,10 +50,11 @@ require("lazy").setup({
 
 require("configs.keymaps")
 
--- Restore cursor position
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-    pattern = { "*" },
-    callback = function()
-        vim.api.nvim_exec('silent! normal! g`"zv', false)
-    end,
-})
+local args = vim.api.nvim_get_vvar("argv")
+
+-- :lua print(vim.inspect(vim.api.nvim_get_vvar("argv")))
+if #args > 2 then
+else
+    require("persistence").load({last = true})
+end
+
