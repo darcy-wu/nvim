@@ -25,13 +25,16 @@ wk.register(
             j = { "<C-i>", "next file" },
         },
         d = {
-            name = "trouble debug ",
+            name = "debug(Trouble/DAP-UI)",
             x = {"<cmd>TroubleToggle<cr>", "TroubleToggle"},
             w = {"<cmd>TroubleToggle workspace_diagnostics<cr>", "TroubleToggle workspace_diagnostics"},
             d = {"<cmd>TroubleToggle document_diagnostics<cr>", "TroubleToggle document_diagnostics"},
             l = {"<cmd>TroubleToggle loclist<cr>", "TroubleToggle loclist"},
             q = {"<cmd>TroubleToggle quickfix<cr>", "TroubleToggle quickfix"},
             R = {"<cmd>TroubleToggle lsp_references<cr>", "TroubleToggle lsp_references"},
+            o = {"<cmd>lua require('dapui').open()<cr>",   "dap-ui open"},
+            c = {"<cmd>lua require('dapui').close()<cr>",  "dap-ui close"},
+            t = {"<cmd>lua require('dapui').toggle()<cr>", "dap-ui toggle"},
         },
         w = {
             a = "add_workspace_folder",
@@ -115,5 +118,5 @@ local bufnr = vim.api.nvim_get_current_buf()
 vim.keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
 vim.keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
 vim.keymap.set({"i", "n", "v"}, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
--- vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.repl.open()<CR>", {silent = true, noremap = true, buffer = bufnr})
 vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
