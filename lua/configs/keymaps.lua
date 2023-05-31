@@ -23,6 +23,8 @@ wk.register(
             h = { "<cmd>Telescope help_tags<cr>", "find tags" },
             k = { "<C-o>", "prev file" },
             j = { "<C-i>", "next file" },
+            t = { "<cmd>NvimTreeToggle<cr>", "toggle file tree"},
+            c = { "<cmd>NvimTreeCollapse<cr>", "collapse file tree"},
         },
         d = {
             name = "debug(Trouble/DAP-UI)",
@@ -106,7 +108,7 @@ wk.register(
 
 
 local opt = { noremap = true, silent = true }
-vim.keymap.set("i", "jj", "<esc>", opt)
+-- vim.keymap.set("i", "jj", "<esc>", opt)
 vim.keymap.set("n", "<C-j>", "<C-w>j", opt)
 vim.keymap.set("n", "<C-k>", "<C-w>k", opt)
 vim.keymap.set("n", "<C-h>", "<C-w>h", opt)

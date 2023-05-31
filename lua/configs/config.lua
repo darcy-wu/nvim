@@ -1,12 +1,13 @@
--- -- 获取当前文件的类型
--- local filetype = vim.bo.filetype
--- 
--- -- 判断文件类型
--- if filetype == "python" then
--- elseif filetype == "javascript" then
--- elseif filetype == "lua" then
--- else
--- end
--- vim.cmd([[ autocmd FileType python noremap <buffer> <F6> :call Autopep8()<CR> ]])
+local set = vim.opt
+set.mouse = "n"
+set.number = true
+set.relativenumber = true
+set.tabstop = 4
+set.shiftwidth = 4
+set.scrolloff = 3
+set.expandtab = true
+set.autoindent = true
+set.smartcase = true
+set.clipboard = "unnamed"
 
 

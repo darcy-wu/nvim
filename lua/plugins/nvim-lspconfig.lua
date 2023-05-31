@@ -64,5 +64,19 @@ return {
             })
         end,
     },
+--    {
+--        "lukas-reineke/lsp-format.nvim",
+--        config = function()
+--            require("lsp-format").setup {}
+--            require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
+--        end,
+--    }
+    -- add symbols-outline    
+    {
+      "simrat39/symbols-outline.nvim",
+      cmd = "SymbolsOutline",
+      keys = { { "<leader>ds", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+      config = true,
+    },
 }
 
