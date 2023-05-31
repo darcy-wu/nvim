@@ -24,8 +24,8 @@ wk.register(
             k = { "<C-o>", "prev file" },
             j = { "<C-i>", "next file" },
         },
-        g = {
-            name = "debug ",
+        d = {
+            name = "trouble debug ",
             x = {"<cmd>TroubleToggle<cr>", "TroubleToggle"},
             w = {"<cmd>TroubleToggle workspace_diagnostics<cr>", "TroubleToggle workspace_diagnostics"},
             d = {"<cmd>TroubleToggle document_diagnostics<cr>", "TroubleToggle document_diagnostics"},
@@ -47,10 +47,6 @@ wk.register(
         e = {"vim.diagnostic.open_float"},
         q = {"vim.diagnostic.setloclist"},
         o = {"<cmd>only<cr>", "only window"},
-        j = {"<C-w>j", "bottom window"},
-        k = {"<C-w>k", "up window"},
-        h = {"<C-w>h", "right window"},
-        l = {"<C-w>l", "left window"},
     },
     {
         prefix = "<leader>",
@@ -108,6 +104,16 @@ wk.register(
 
 local opt = { noremap = true, silent = true }
 vim.keymap.set("i", "jj", "<esc>", opt)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opt)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opt)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opt)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opt)
 
 --            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 --            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+local bufnr = vim.api.nvim_get_current_buf()
+vim.keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
+-- vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
