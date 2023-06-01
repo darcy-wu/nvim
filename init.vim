@@ -3,6 +3,7 @@ require("configs.lazy")
 EOF
 let g:better_escape_shortcut = 'jj'
 let g:better_escape_interval = 200
+set signcolumn=yes 
 
 " F6自动格式化
 " autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>

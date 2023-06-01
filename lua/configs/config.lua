@@ -10,4 +10,3 @@ set.autoindent = true
 set.smartcase = true
 set.clipboard = "unnamed"
 
-
