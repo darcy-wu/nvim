@@ -37,6 +37,10 @@ wk.register(
             o = {"<cmd>lua require('dapui').open()<cr>",   "dap-ui open"},
             c = {"<cmd>lua require('dapui').close()<cr>",  "dap-ui close"},
             t = {"<cmd>lua require('dapui').toggle()<cr>", "dap-ui toggle"},
+            r = {"<cmd>lua require'dap'.continue()<CR>",          "dap run"},
+            s = {"<cmd>lua require'dap'.step_over()<CR>",         "dap step over"},
+            i = {"<cmd>lua require'dap'.step_into()<CR>",         "dap step in"},
+            b = {"<cmd>lua require'dap'.toggle_breakpoint()<CR>", "dap insert breakpoint"},
         },
         w = {
             a = "add_workspace_folder",
@@ -48,10 +52,11 @@ wk.register(
             name = "refactor",
             n = "rename",
         },
-        F = {"lsp async"},
+        F = {"lsp format"},
         e = {"vim.diagnostic.open_float"},
         q = {"vim.diagnostic.setloclist"},
         o = {"<cmd>only<cr>", "only window"},
+        t = {":FloatermNew<CR>", "open float terminal"},
     },
     {
         prefix = "<leader>",

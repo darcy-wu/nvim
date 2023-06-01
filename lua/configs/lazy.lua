@@ -43,7 +43,7 @@ local args = vim.api.nvim_get_vvar("argv")
 -- :lua print(vim.inspect(vim.api.nvim_get_vvar("argv")))
 if #args > 2 then
 else
-    require("persistence").load({last = true})
+    require("persistence").load({ last = true })
 end
 
 -- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]

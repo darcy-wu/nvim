@@ -3,14 +3,23 @@ return {
         event = "VeryLazy", -- 尽可能不加载
         "neovim/nvim-lspconfig",
         config = function()
-            --
-            -- lspconfig
-            --
             local lspconfig = require('lspconfig')
             lspconfig.pyright.setup {
-                capabilities = require('cmp_nvim_lsp').default_capabilities()
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                settings = {
+                    python = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            --diagnosticMode = "workspace",
+                            diagnosticMode = "openFilesOnly",
+                            useLibraryCodeForTypes = true
+                        }
+                    }
+                }
             }
-            -- lspconfig.pylyzer.setup { }
+            -- lspconfig.pylyzer.setup{
+            --     capabilities = require('cmp_nvim_lsp').default_capabilities()
+            -- }
             lspconfig.lua_ls.setup {
                 capabilities = require('cmp_nvim_lsp').default_capabilities(),
                 settings = {
@@ -64,19 +73,18 @@ return {
             })
         end,
     },
---    {
---        "lukas-reineke/lsp-format.nvim",
---        config = function()
---            require("lsp-format").setup {}
---            require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
---        end,
---    }
-    -- add symbols-outline    
+    --    {
+    --        "lukas-reineke/lsp-format.nvim",
+    --        config = function()
+    --            require("lsp-format").setup {}
+    --            require("lspconfig").gopls.setup { on_attach = require("lsp-format").on_attach }
+    --        end,
+    --    }
+    -- add symbols-outline
     {
-      "simrat39/symbols-outline.nvim",
-      cmd = "SymbolsOutline",
-      keys = { { "<leader>ds", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-      config = true,
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
+        keys = { { "<leader>ds", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+        config = true,
     },
 }
-
