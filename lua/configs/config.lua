@@ -1,5 +1,5 @@
 local set = vim.opt
-set.mouse = "n"
+set.mouse = ""
 set.number = true
 set.relativenumber = true
 set.tabstop = 4
