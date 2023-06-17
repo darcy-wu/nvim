@@ -11,7 +11,8 @@ return {
     keys = function()
       return {
         {
-          "fj",
+          --"fj",
+          "<c-j>",
           function()
             return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next"
               or "<c-\\><c-n>:call searchpair('[([{<|]', '', '[)\\]}>|]', 'W')<cr>a"
@@ -21,26 +22,28 @@ return {
           mode = "i",
         },
         {
-          "fj",
+          --"fj",
+          "<c-j>",
           function()
             require("luasnip").jump(1)
           end,
           mode = "s",
         },
         {
-          "fh",
+          --"fh",
+          "<c-k>",
           function()
             require("luasnip").jump(-1)
           end,
           mode = { "i", "s" },
         },
         {
-          "<c-h>",
+          "<c-l>",
           "<Plug>luasnip-next-choice",
           mode = { "i", "s" },
         },
         {
-          "<c-p>",
+          "<c-h>",
           "<Plug>luasnip-prev-choice",
           mode = { "i", "s" },
         },

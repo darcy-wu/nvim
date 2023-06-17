@@ -38,6 +38,7 @@ return {
                 },
                 mapping = {
                     ["<Tab>"] = cmp.mapping(function(fallback)
+                    --["<down>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
                             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
@@ -51,6 +52,7 @@ return {
                         end
                     end, { "i", "s" }),
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    --["<up>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
                         --elseif luasnip.jumpable(-1) then
@@ -63,15 +65,15 @@ return {
                         select = true ,
                         behavior = cmp.ConfirmBehavior.Replace
                     }),
-                    ["<C-u>"] = cmp.mapping {
-                        i = function(fallback)
-                            if luasnip.choice_active() then
-                                require "luasnip.extras.select_choice"()
-                            else
-                                fallback()
-                            end
-                        end,
-                    },
+                    --["<C-u>"] = cmp.mapping {
+                    --    i = function(fallback)
+                    --        if luasnip.choice_active() then
+                    --            require "luasnip.extras.select_choice"()
+                    --        else
+                    --            fallback()
+                    --        end
+                    --    end,
+                    --},
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },

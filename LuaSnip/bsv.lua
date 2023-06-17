@@ -27,24 +27,34 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 return {
-    s("package", {
-        t"package ", i(1), t{";", "endpackage : "},
-        d(2, function(args)
-            return sn(nil, { i(1, args[1])})
-        end,
-        {1})
-    }),
-    s("import", {
-        t"import ", i(1), t":: *;"
-    }),
-    s("synth", {
+    s({trig = "package", snippetType = "autosnippet" }, fmt([[
+        package {};
+
+        endpackage : {}
+        ]],{
+            i(1, "<Package>"),
+            d(2, function(args)
+                return sn(nil, { i(1, args[1])})
+            end, {1})
+        }
+    )),
+    s({trig = "import", snippetType = "autosnippet" }, fmt([[import {}:: *;]], {
+            i(1, "<lib>"),
+        }
+    )),
+    s({trig = "synth", snippetType = "autosnippet" }, {
         t"(* synthesize *)"
     }),
-    s("module", {
-        t"module ", i(1), t" (", i(2), t{");", "endpackage : "},
-        d(3, function(args)
-            return sn(nil, { i(1, args[1])})
-        end,
-        {1})
-    }),
+    s({trig = "module", snippetType = "autosnippet" }, fmt([[
+        module {} ({});
+
+        endmodule : {}
+        ]], {
+            i(1, "<Module>"),
+            i(2, "<Interface>"),
+            d(3, function(args)
+                return sn(nil, { i(1, args[1])})
+            end, {1})
+        }
+    )),
 }
